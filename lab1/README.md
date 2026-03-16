@@ -31,7 +31,7 @@ print(distances)
 ```
 
 **Скриншот**:  
-![Задание 0 - расстояния между городами](img/00.png)
+![Задание 0 - расстояния между городами](images/00.png)
 
 ## Задание 1. Площадь круга и принадлежность точки
 
@@ -47,13 +47,15 @@ area = pi * radius ** 2
 print(round(area, 4))
 
 point_1 = (23, 34)
-print(point_1[0] ** 2 + point_1[1] ** 2 <= radius ** 2)
+distance_1 = (point_1[0] ** 2 + point_1[1] ** 2) ** 0.5
+print(distance_1 < radius)
 
 point_2 = (30, 30)
-print(point_2[0] ** 2 + point_2[1] ** 2 <= radius ** 2)
+distance_2 = (point_2[0] ** 2 + point_2[1] ** 2) ** 0.5
+print(distance_2 < radius)
 ```
 **Скриншот**:  
-![Задание 1 - круг и точки](img/01.png)
+![Задание 1 - круг и точки](images/01.png)
 
 ## Задание 2. Арифметическое выражение
 
@@ -62,12 +64,12 @@ print(point_2[0] ** 2 + point_2[1] ** 2 <= radius ** 2)
 
 **Код**:
 ```python
-result = 1 * (2 + 3) * 4 + 5
+result = 1 * 2 + 3 + 4 * 5
 print(result)
 ```
 
 **Скриншот**:  
-![Задание 2 - выражение = 25](img/02.png)
+![Задание 2 - выражение = 25](images/02.png)
 
 ## Задание 3. Индексация строки фильмов
 
@@ -82,14 +84,14 @@ print(result)
 ```python
 my_favorite_movies = 'Терминатор, Пятый элемент, Аватар, Чужие, Назад в будущее'
 
-print(my_favorite_movies[0:11])
-print(my_favorite_movies[44:])
-print(my_favorite_movies[13:26])
-print(my_favorite_movies[36:42])
+print(my_favorite_movies[0:10])
+print(my_favorite_movies[-15:])
+print(my_favorite_movies[12:25])
+print(my_favorite_movies[-22:-17])
 ```
 
 **Скриншот**:  
-![Задание 3 - фильмы через срезы](img/03.png)
+![Задание 3 - фильмы через срезы](images/03.png)
 
 ## Задание 4. Семья и рост
 
@@ -100,20 +102,19 @@ print(my_favorite_movies[36:42])
 
 **Код**:
 ```python
-my_family = ['Отец', 'Мать', 'Я']
+my_family = ['Я', 'Мама', 'Отец']
 my_family_height = [
-    ['Отец', 180],
-    ['Мать', 165],
-    ['Я', 175],
+    ['Я', 181],
+    ['Мама', 168],
+    ['Отец', 174]
 ]
 
-print('Рост отца -', my_family_height[0][1], 'см')
-total_height = sum(person[1] for person in my_family_height)
-print('Общий рост моей семьи -', total_height, 'см')
+print(f'Рост отца - {my_family_height[2][1]} см' )
+print(f'Общий рост моей семьи - {my_family_height[0][1] + my_family_height[1][1] + my_family_height[2][1]} см' )
 ```
 
 **Скриншот**:  
-![Задание 4 - рост семьи](img/04.png)
+![Задание 4 - рост семьи](images/04.png)
 
 ## Задание 5. Зоопарк
 
@@ -137,14 +138,15 @@ print(zoo)
 zoo.remove('elephant')
 print(zoo)
 
-lion_index = zoo.index('lion') + 1
-lark_index = zoo.index('lark') + 1
-print('Лев сидит в', lion_index, 'клетке')
-print('Жаворонок сидит в', lark_index, 'клетке')
+lion_kletka = zoo.index('lion') + 1
+lark_kletka = zoo.index('lark') + 1
+
+print(f'Лев сидит в клетке номер {lion_kletka}')
+print(f'Жаворонок сидит в клетке номер {lark_kletka}')
 ```
 
 **Скриншот**:  
-![Задание 5 - зоопарк](img/05.png)
+![Задание 5 - зоопарк](images/05.png)
 
 ## Задание 6. Песни Depeche Mode
 
@@ -166,17 +168,8 @@ violator_songs_list = [
     ['Clean', 5.83],
 ]
 
-time_halo = time_enjoy = time_clean = 0
-for song in violator_songs_list:
-    if song[0] == 'Halo':
-        time_halo = song[1]
-    elif song[0] == 'Enjoy the Silence':
-        time_enjoy = song[1]
-    elif song[0] == 'Clean':
-        time_clean = song[1]
-
-total_time_1 = round(time_halo + time_enjoy + time_clean, 2)
-print('Три песни звучат', total_time_1, 'минут')
+songs = round((violator_songs_list[3][1] + violator_songs_list[5][1] + violator_songs_list[-1][1]), 2)
+print(f'Три песни звучат {songs} минут')
 
 violator_songs_dict = {
     'World in My Eyes': 4.76,
@@ -190,17 +183,12 @@ violator_songs_dict = {
     'Clean': 5.68,
 }
 
-total_time_2 = round(
-    violator_songs_dict['Sweetest Perfection'] +
-    violator_songs_dict['Policy of Truth'] +
-    violator_songs_dict['Blue Dress'],
-    2
-)
-print('А другие три песни звучат', total_time_2, 'минут')
+songs_another = round((violator_songs_dict['Sweetest Perfection'] + violator_songs_dict['Policy of Truth'] + violator_songs_dict['Blue Dress']), )
+print(f'Три песни звучат {songs_another} минут')
 ```
 
 **Скриншот**:  
-![Задание 6 - длительность песен](img/06.png)
+![Задание 6 - длительность песен](images/06.png)
 
 ## Задание 7. Расшифровка сообщения
 
@@ -217,16 +205,16 @@ secret_message = [
     'бсц59мегщ2лятьаьгенедыв9фк9ехб1а',
 ]
 
-word1 = secret_message[0][3]
-word2 = secret_message[1][9:13]
-word3 = secret_message[2][5:15:2]
-word4 = secret_message[3][12:6:-1]
-word5 = secret_message[4][20:15:-1]
+word_1 = secret_message[0][3]                  
+word_2 = secret_message[1][9:13]               
+word_3 = secret_message[2][5:15:2]          
+word_4 = secret_message[3][7:13][::-1]         
+word_5 = secret_message[4][16:21][::-1]   
 
-print(word1, word2, word3, word4, word5)
+print(f"{word_1} {word_2} {word_3} {word_4} {word_5}")
 ```
 **Скриншот**:  
-![Задание 7 - расшифровка](img/07.png)
+![Задание 7 - расшифровка](images/07.png)
 
 ## Задание 8. Цветы в саду и на лугу
 
@@ -257,7 +245,6 @@ print(meadow_set - garden_set)
 
 **Код**:
 ```python
-# Данные уже заданы в условии, здесь только результат
 sweets = {
     'печенье': [
         {'shop': 'пятерочка', 'price': 9.99},
@@ -279,7 +266,7 @@ sweets = {
 ```
 
 **Скриншот**:  
-![Задание 9 - словарь sweets](img/09.png)
+![Задание 9 - словарь sweets](images/09.png)
 
 ## Задание 10. Стоимость товаров на складе
 
@@ -302,29 +289,50 @@ store = {
     '45678': [{'quantity': 50, 'price': 100}, {'quantity': 12, 'price': 95}, {'quantity': 43, 'price': 97}],
 }
 
+lamps_cost = store[goods['Лампа']][0]['quantity'] * store[goods['Лампа']][0]['price']
 lamp_code = goods['Лампа']
-lamp_qty = store[lamp_code][0]['quantity']
-lamp_cost = store[lamp_code][0]['quantity'] * store[lamp_code][0]['price']
-print('Лампа -', lamp_qty, 'шт, стоимость', lamp_cost, 'руб')
+lamps_item = store[lamp_code][0]
+lamps_quantity = lamps_item['quantity']
+lamps_price = lamps_item['price']
+lamps_cost = lamps_quantity * lamps_price
+print('Лампа -', lamps_quantity, 'шт, стоимость', lamps_cost, 'руб')
+
 
 table_code = goods['Стол']
-t1q, t1p = store[table_code][0]['quantity'], store[table_code][0]['price']
-t2q, t2p = store[table_code][1]['quantity'], store[table_code][1]['price']
-print('Стол -', t1q + t2q, 'шт, стоимость', t1q*t1p + t2q*t2p, 'руб')
+
+table_item_1 = store[table_code][0]
+table_item_2 = store[table_code][1]
+
+table_quantity = table_item_1['quantity'] + table_item_2['quantity']
+table_cost = (table_item_1['quantity'] * table_item_1['price']) + \
+             (table_item_2['quantity'] * table_item_2['price'])
+
+print('Стол -', table_quantity, 'шт, стоимость', table_cost, 'руб')
+
 
 sofa_code = goods['Диван']
-s1q, s1p = store[sofa_code][0]['quantity'], store[sofa_code][0]['price']
-s2q, s2p = store[sofa_code][1]['quantity'], store[sofa_code][1]['price']
-print('Диван -', s1q + s2q, 'шт, стоимость', s1q*s1p + s2q*s2p, 'руб')
+sofa_item_1 = store[sofa_code][0]
+sofa_item_2 = store[sofa_code][1]
+
+sofa_quantity = sofa_item_1['quantity'] + sofa_item_2['quantity']
+sofa_cost = (sofa_item_1['quantity'] * sofa_item_1['price']) + \
+            (sofa_item_2['quantity'] * sofa_item_2['price'])
+
+print('Диван -', sofa_quantity, 'шт, стоимость', sofa_cost, 'руб')
+
 
 chair_code = goods['Стул']
-c1q, c1p = store[chair_code][0]['quantity'], store[chair_code][0]['price']
-c2q, c2p = store[chair_code][1]['quantity'], store[chair_code][1]['price']
-c3q, c3p = store[chair_code][2]['quantity'], store[chair_code][2]['price']
-total_chair_qty = c1q + c2q + c3q
-total_chair_cost = c1q*c1p + c2q*c2p + c3q*c3p
-print('Стул -', total_chair_qty, 'шт, стоимость', total_chair_cost, 'руб')
+chair_item_1 = store[chair_code][0]
+chair_item_2 = store[chair_code][1]
+chair_item_3 = store[chair_code][2]
+
+chair_quantity = chair_item_1['quantity'] + chair_item_2['quantity'] + chair_item_3['quantity']
+chair_cost = (chair_item_1['quantity'] * chair_item_1['price']) + \
+             (chair_item_2['quantity'] * chair_item_2['price']) + \
+             (chair_item_3['quantity'] * chair_item_3['price'])
+
+print('Стул -', chair_quantity, 'шт, стоимость', chair_cost, 'руб')
 ```
 
 **Скриншот**:  
-![Задание 10 - склад](img/10.png)
+![Задание 10 - склад](images/10.png)

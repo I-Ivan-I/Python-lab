@@ -14,13 +14,13 @@ garden_set = set(garden)
 meadow_set = set(meadow)
 
 # выведите на консоль все виды цветов
-print("все виды цветов:", garden_set | meadow_set)
+print(garden_set | meadow_set)
 
 # выведите на консоль те, которые растут и там и там
-print("Растут и в саду, и на лугу:", garden_set & meadow_set)
+print(garden_set & meadow_set)
 
 # выведите на консоль те, которые растут в саду, но не растут на лугу
-print("Только в саду:", garden_set - meadow_set)
+print(garden_set - meadow_set)
 
 # выведите на консоль те, которые растут на лугу, но не растут в саду
-print("Только на лугу:", meadow_set - garden_set)
+print(meadow_set - garden_set)
