@@ -237,6 +237,8 @@ print(garden_set & meadow_set)
 print(garden_set - meadow_set)
 print(meadow_set - garden_set)
 ```
+**Скриншот**:  
+![Задание 8 - Цветы](images/08.png)
 
 ## Задание 9. Сравнение цен в магазинах
 
